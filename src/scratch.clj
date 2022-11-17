@@ -71,13 +71,13 @@
       ; background
       (.setPaint (color bg-color))
       (.fillRect 0 0 width height)
-      ; move the cursor to center
-      (.translate 0 (int (/ height 2)))
       ; axis
       (.setPaint (color axis-color))
-      (.drawString "chaos" 235 -200)
-      (.drawString "boredom" 225 200)
-      (.draw (java.awt.geom.Line2D$Double. 0.0 0.0 500.0 0.0))
+      (.drawString "chaos" (int (* height 0.46)) (int (* height 0.1)))
+      (.drawString "boredom" (int (* height 0.44)) (int (* height 0.9)))
+      (.draw (java.awt.geom.Line2D$Double. 0.0 (/ height 2) (float width) (/ height 2)))
+      ; move the cursor to center
+      (.translate 0 (int (/ height 2)))
       ; line thickness
       (.setStroke (BasicStroke. 3))
       ; lines
