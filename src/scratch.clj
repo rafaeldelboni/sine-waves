@@ -50,14 +50,10 @@
 
 (defn sine-wave-calc
   [size amplitude frequency]
-  (reduce
-   (fn [acc _]
-     (let [{:keys [x]} (last acc)
-           new-item {:x (inc x)
-                     :y (* amplitude (Math/sin (* 2 Math/PI frequency x)))}]
-       (conj acc new-item)))
-   [{:x 0 :y 0}]
-   (range size)))
+  (map (fn [t]
+         {:x t
+          :y (* amplitude (Math/sin (* 2 Math/PI frequency t)))})
+       (range size)))
 
 (defn draw! ^Graphics2D
   [width height amplitude frequency ^BufferedImage buffered-image]
